@@ -155,15 +155,39 @@ void display(){
     
 
 }
-
+double h=40;
+void animate(){
+    glutPostRedisplay();
+	if(flg==0 && action != -1){
+		if(action==1){
+			int limit=bloks[index].y+counter;
+			if(limit<=60 && counter>0){
+				int x,y;
+				findZero(&x,&y);
+				stopIndex=grid[x][y];
+				bloks[index].y=bloks[index].y+h;
+				counter=counter-h;
+			}
+			if(counter<0){
+				action=-1;
+				stopIndex=-1;
+				int x,y;
+				findZero(&x,&y);
+				int t=grid[x][y];
+				bloks[t].y=bloks[t].y-40;
+			}
+		}
+    }
+    action=-1;
+}
 void specialKeyListener(int key,int x, int y){
 
-	//cout<<action<<" - "<<index<<endl;
+	cout<<action<<" - "<<index<<endl;
 	if(key==GLUT_KEY_UP && action==-1){//abajo
 		int x,y;
 		findZero(&x,&y);
-		/*cout<<"pressed up key"<<endl;
-		cout<<x<<y<<endl;*/
+		cout<<"pressed up key"<<endl;
+		cout<<x<<y<<endl;
 		if(x<2){
 		
 			int aux;
@@ -180,8 +204,8 @@ void specialKeyListener(int key,int x, int y){
     else if(key==GLUT_KEY_DOWN && action==-1){
 		int x,y;
 		findZero(&x,&y);
-		/*cout<<"pressed down key"<<endl;
-		cout<<x<<y<<endl;*/
+		cout<<"pressed down key"<<endl;
+		cout<<x<<y<<endl;
 		if(x>0){
 			//swap(grid[x][y],grid[x-1,y]);
 			int aux;
@@ -198,8 +222,8 @@ void specialKeyListener(int key,int x, int y){
 	else if(key==GLUT_KEY_RIGHT && action==-1){
 		int x,y;
 		findZero(&x,&y);
-		/*cout<<"pressed right key"<<endl;
-		cout<<x<<y<<endl;*/
+		cout<<"pressed right key"<<endl;
+		cout<<x<<y<<endl;
 		if(y>0){
 			//swap(grid[x][y],grid[x,y-1]);
 			int aux;
@@ -216,10 +240,10 @@ void specialKeyListener(int key,int x, int y){
 	else if(key==GLUT_KEY_LEFT && action==-1){
 		int x,y;
 		findZero(&x,&y);
-		
+        cout<<"pressed left key"<<endl;
+		cout<<x<<y<<endl;
 		if(y<2){
-			
-			
+
 			int aux;
 			aux=grid[x][y];
 			grid[x][y]=grid[x][y+1];
