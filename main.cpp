@@ -156,6 +156,29 @@ void display(){
 
 }
 
+void specialKeyListener(int key,int x, int y){
+
+	cout<<action<<" - "<<index<<endl;
+	if(key==GLUT_KEY_UP && action==-1){//abajo
+		int x,y;
+		findZero(&x,&y);
+		cout<<"press up key";
+		if(x<2){
+		
+			int aux;
+			aux=grid[x][y];
+			grid[x][y]=grid[x+1][y];
+			grid[x+1][y]=aux;
+			
+			action=1;
+			counter=40;
+			index=grid[x][y];
+			totStep++;
+		}
+	}
+	
+}
+
 int main(int argc, char** argv){
 		//cout<<" PROYECTO "<<endl;
 
