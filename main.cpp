@@ -79,7 +79,22 @@ double primaryPosition[9][2]={
 double counter=40;
 typedef struct st blok;
 blok bloks[9];
-
+void findZero(int *x,int *y){
+    int flag=0,i=0,j=0;
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            if(grid[i][j]==0){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1){
+            break;
+        }
+    }
+    *x=i;
+    *y=j;
+}
 
 void drawGrid(){
 	int i;
