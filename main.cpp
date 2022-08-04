@@ -8,6 +8,26 @@
 
 using namespace std;
 
+
+int totStep=0;
+
+typedef enum{
+	MODE_BITMAP,
+		MODE_STROKE
+}mode_type;
+
+static mode_type mode;
+static int font_index;
+
+void print_stroke_string(void* font, char* s){
+	if(s && strlen(s)){
+		
+		while(*s){
+			glutStrokeCharacter(font,*s);
+			s++;
+		}
+	}
+}
 void draw_stuff(int index, double tx, double ty){
 	char string[8][256];
 	
@@ -31,7 +51,6 @@ void draw_stuff(int index, double tx, double ty){
 	}
 	glPopMatrix();
 }
-
 void drawGrid(){
 	int i;
 	glColor3f(1,0,0);
