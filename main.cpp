@@ -9,20 +9,6 @@
 using namespace std;
 
 //<<<<<<< HEAD
-
-void display(){
-	glClearColor(0,0,0,0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(-70, 70, -70, 70, -1.0, 1.0);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glColor3f(0,1,0);
-	glutSwapBuffers();
-
-}
-//=======
 void drawGrid(){
 	int i;
 	glColor3f(1,0,0);
@@ -38,6 +24,23 @@ void drawGrid(){
 	}
 	glEnd();
 }
+
+void display(){
+	glClearColor(0,0,0,0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(-70, 70, -70, 70, -1.0, 1.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glColor3f(0,1,0);
+    drawGrid();
+	glutSwapBuffers();
+    
+
+}
+//=======
+
 //>>>>>>> Ebert
 int main(int argc, char** argv){
 		//cout<<" PROYECTO "<<endl;
