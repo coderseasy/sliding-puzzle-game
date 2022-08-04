@@ -112,6 +112,20 @@ void drawGrid(){
 	}
 	glEnd();
 }
+void drawSquare(double x, double y, double color_rgb[]){
+	glColor3f(color_rgb[0],color_rgb[1],color_rgb[2]);
+	cout<<x<<","<<y<<endl;
+	
+	glBegin(GL_QUADS);
+	{
+		glVertex2f(x+1,y+1);
+		glVertex2f(x+39,y+1);
+		glVertex2f(x+39,y+39);
+		glVertex2f(x+1,y+39);
+	}
+	glEnd();
+	
+}
 
 void display(){
 	glClearColor(0,0,0,0);
