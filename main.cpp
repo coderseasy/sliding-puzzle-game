@@ -182,12 +182,11 @@ void animate(){
 }
 void specialKeyListener(int key,int x, int y){
 
-	cout<<action<<" - "<<index<<endl;
+	
 	if(key==GLUT_KEY_UP && action==-1){//abajo
 		int x,y;
 		findZero(&x,&y);
-		cout<<"pressed up key"<<endl;
-		cout<<x<<y<<endl;
+
 		if(x<2){
 		
 			int aux;
@@ -204,10 +203,9 @@ void specialKeyListener(int key,int x, int y){
     else if(key==GLUT_KEY_DOWN && action==-1){
 		int x,y;
 		findZero(&x,&y);
-		cout<<"pressed down key"<<endl;
-		cout<<x<<y<<endl;
+	
 		if(x>0){
-			//swap(grid[x][y],grid[x-1,y]);
+		
 			int aux;
 			aux=grid[x][y];
 			grid[x][y]=grid[x-1][y];
@@ -222,10 +220,9 @@ void specialKeyListener(int key,int x, int y){
 	else if(key==GLUT_KEY_RIGHT && action==-1){
 		int x,y;
 		findZero(&x,&y);
-		cout<<"pressed right key"<<endl;
-		cout<<x<<y<<endl;
+	
 		if(y>0){
-			//swap(grid[x][y],grid[x,y-1]);
+			
 			int aux;
 			aux=grid[x][y];
 			grid[x][y]=grid[x][y-1];
@@ -240,8 +237,7 @@ void specialKeyListener(int key,int x, int y){
 	else if(key==GLUT_KEY_LEFT && action==-1){
 		int x,y;
 		findZero(&x,&y);
-        cout<<"pressed left key"<<endl;
-		cout<<x<<y<<endl;
+    
 		if(y<2){
 
 			int aux;
@@ -256,12 +252,12 @@ void specialKeyListener(int key,int x, int y){
 		}
 	}
 	
-
+	animate();
 	
 }
 
 int main(int argc, char** argv){
-		//cout<<" PROYECTO "<<endl;
+	
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
