@@ -213,6 +213,25 @@ void specialKeyListener(int key,int x, int y){
 			totStep++;
 		}
 	}
+	else if(key==GLUT_KEY_LEFT && action==-1){
+		int x,y;
+		findZero(&x,&y);
+		
+		if(y<2){
+			
+			
+			int aux;
+			aux=grid[x][y];
+			grid[x][y]=grid[x][y+1];
+			grid[x][y+1]=aux;
+			
+			action=4;
+			counter=-40;
+			index=grid[x][y];
+			totStep++;
+		}
+	}
+	
 
 	
 }
