@@ -150,7 +150,7 @@ void display(){
 		}
 	}
 	flg=0;
-    
+
 	glutSwapBuffers();
     
 
@@ -158,11 +158,12 @@ void display(){
 
 void specialKeyListener(int key,int x, int y){
 
-	cout<<action<<" - "<<index<<endl;
+	//cout<<action<<" - "<<index<<endl;
 	if(key==GLUT_KEY_UP && action==-1){//abajo
 		int x,y;
 		findZero(&x,&y);
-		cout<<"press up key";
+		/*cout<<"pressed up key"<<endl;
+		cout<<x<<y<<endl;*/
 		if(x<2){
 		
 			int aux;
@@ -176,6 +177,43 @@ void specialKeyListener(int key,int x, int y){
 			totStep++;
 		}
 	}
+    else if(key==GLUT_KEY_DOWN && action==-1){
+		int x,y;
+		findZero(&x,&y);
+		/*cout<<"pressed down key"<<endl;
+		cout<<x<<y<<endl;*/
+		if(x>0){
+			//swap(grid[x][y],grid[x-1,y]);
+			int aux;
+			aux=grid[x][y];
+			grid[x][y]=grid[x-1][y];
+			grid[x-1][y]=aux;
+			
+			action=2;
+			counter=-40;
+			index=grid[x][y];
+			totStep++;
+		}
+	}
+	else if(key==GLUT_KEY_RIGHT && action==-1){
+		int x,y;
+		findZero(&x,&y);
+		/*cout<<"pressed right key"<<endl;
+		cout<<x<<y<<endl;*/
+		if(y>0){
+			//swap(grid[x][y],grid[x,y-1]);
+			int aux;
+			aux=grid[x][y];
+			grid[x][y]=grid[x][y-1];
+			grid[x][y-1]=aux;
+			
+			action=3;
+			counter=40;
+			index=grid[x][y];
+			totStep++;
+		}
+	}
+
 	
 }
 
