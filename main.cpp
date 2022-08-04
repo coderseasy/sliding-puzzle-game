@@ -126,6 +126,19 @@ void drawSquare(double x, double y, double color_rgb[]){
 	glEnd();
 	
 }
+bool check(){
+	int cnt=0;
+	
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			if(grid[i][j]!=order[cnt]){
+				return false;
+			}
+			cnt++;
+		}
+	}
+	return true;
+}
 
 void display(){
 	glClearColor(0,0,0,0);
@@ -169,6 +182,7 @@ void display(){
     
 
 }
+
 double h=40;
 void animate(){
     glutPostRedisplay();
