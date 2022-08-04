@@ -79,6 +79,7 @@ double primaryPosition[9][2]={
 double counter=40;
 typedef struct st blok;
 blok bloks[9];
+
 void findZero(int *x,int *y){
     int flag=0,i=0,j=0;
     for(i=0;i<3;i++){
@@ -122,6 +123,34 @@ void display(){
 	glLoadIdentity();
 	glColor3f(0,1,0);
     drawGrid();
+
+    for(int i=1;i<10;i++){
+		if(flg==1){
+			bloks[i-1].number=grid[(i-1)/3][(i-1)%3];
+			bloks[i-1].x=primaryPosition[i-1][0];
+			bloks[i-1].y=primaryPosition[i-1][1];
+			cout<<bloks[i-1].number;
+		}
+		for(int j=0;j<3;j++){
+			bloks[i-1].rgb[j]=color[i-1][j];
+		}
+		if(i-1 != stopIndex){
+			double inc=0.05;
+			drawSquare(bloks[i-1].x,bloks[i-1].y,bloks[i-1].rgb);
+			for(int k=0;k<10;k++){
+				if(i==9){
+					draw_stuff(7,bloks[i-1].x+10+inc,bloks[i-1].y+10);
+				}
+				else{
+					draw_stuff(i-2,bloks[i-1].x+10+inc,bloks[i-1].y+10);
+				}
+				inc=inc+0.1;
+			}
+			
+		}
+	}
+	flg=0;
+    
 	glutSwapBuffers();
     
 
