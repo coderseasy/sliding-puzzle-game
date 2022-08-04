@@ -52,25 +52,35 @@ void draw_stuff(int index, double tx, double ty){
 	glPopMatrix();
 }
 struct st{
-			double x;
-			double y;
-			double rgb[3];
-			int number;
-		};
-		int flg = 1, index = 6, action = -1, stopIndex=-1;
-		
-		int grid[3][3]={
-			{4,3,2},
-		{7,5,8},
-			{1,6,0}
-		};
-		int order[9]={1,2,3,4,5,6,7,8,0};
-		double color[9][3]={
-			{0,0,0},{1,0,1},{1,1,0},
-			{1,0,0},{0,0,1},{0,1,0},
-			{1,1,1},{0,1,1},{0.5,0.3,0.5}
-		};
-		
+    double x;
+    double y;
+    double rgb[3];
+    int number;
+};
+int flg = 1, index = 6, action = -1, stopIndex=-1;
+
+int grid[3][3]={
+    {4,3,2},
+    {7,5,8},
+    {1,6,0}
+};
+int order[9]={1,2,3,4,5,6,7,8,0};
+double color[9][3]={
+    {0,0,0},{1,0,1},{1,1,0},
+    {1,0,0},{0,0,1},{0,1,0},
+    {1,1,1},{0,1,1},{0.5,0.3,0.5}
+};
+double primaryPosition[9][2]={
+	{20,-60},{-60,-60},{20,20},
+	{-20,20},{-60,20},{-20,-20},
+	{-20,-60},{-60,-20},{20,-20}
+};
+
+double counter=40;
+typedef struct st blok;
+blok bloks[9];
+
+
 void drawGrid(){
 	int i;
 	glColor3f(1,0,0);
