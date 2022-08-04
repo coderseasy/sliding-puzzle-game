@@ -355,6 +355,7 @@ int main(int argc, char** argv){
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow(" PROYECTO !");
 	glutDisplayFunc(display);
+	glutSpecialFunc(specialKeyListener);
 	glutMainLoop();
 	
     
