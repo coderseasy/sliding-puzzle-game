@@ -8,7 +8,7 @@
 
 using namespace std;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 void display(){
 	glClearColor(0,0,0,0);
