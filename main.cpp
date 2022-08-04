@@ -177,7 +177,63 @@ void animate(){
 				bloks[t].y=bloks[t].y-40;
 			}
 		}
+				else if(action==2){
+			int limit=bloks[index].y+counter;
+			if(limit>=-60 && counter<0){
+				int x,y;
+				findZero(&x,&y);
+				stopIndex=grid[x][y];
+				bloks[index].y=bloks[index].y-h;
+				counter=counter+h;
+			}
+			if(counter>0){
+				action=-1;
+				stopIndex=-1;
+				int x,y;
+				findZero(&x,&y);
+				int t=grid[x][y];
+				bloks[t].y=bloks[t].y+40;
+			}
+		}
+		else if(action==3){
+			int limit=bloks[index].x+counter;
+			if(limit<=60 && counter>0){
+				int x,y;
+				findZero(&x,&y);
+				stopIndex=grid[x][y];
+				bloks[index].x=bloks[index].x+h;
+				counter=counter-h;
+			}
+			if(counter<0){
+				action=-1;
+				stopIndex=-1;
+				int x,y;
+				findZero(&x,&y);
+				int t=grid[x][y];
+				bloks[t].x=bloks[t].x-40;
+			}
+		}
+		else if(action==4){
+			int limit=bloks[index].x+counter;
+			if(limit>=-60 && counter<0){
+				int x,y;
+				findZero(&x,&y);
+				stopIndex=grid[x][y];
+				bloks[index].x=bloks[index].x-h;
+				counter=counter+h;
+			}
+			if(counter>0){
+				action=-1;
+				stopIndex=-1;
+				int x,y;
+				findZero(&x,&y);
+				int t=grid[x][y];
+				bloks[t].x=bloks[t].x+40;
+			}
+		}
+
     }
+
     action=-1;
 }
 void specialKeyListener(int key,int x, int y){
