@@ -159,7 +159,7 @@ void display(){
 				else{
 					draw_stuff(i-2,bloks[i-1].x+10+inc,bloks[i-1].y+10);
 				}
-				inc=inc+0.1;
+				inc=inc+0.05;
 			}
 			
 		}
