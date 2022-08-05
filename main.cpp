@@ -66,9 +66,9 @@ int grid[3][3]={
 };
 int order[9]={1,2,3,4,5,6,7,8,0};
 double color[9][3]={
-    {0,0,0},{1,0,1},{1,1,0},
-    {1,0,0},{0,0,1},{0,1,0},
-    {1,1,1},{0,1,1},{0.5,0.3,0.5}
+    {0,0,0},{0.5,0.1,0.9},{0.8,1,0.9},
+    {0.9,0.6,0.2},{1,1,0},{1,0.4,0.8},
+    {1,1,1},{0.7,0.5,1},{0.7,0.9,0.5}
 };
 double primaryPosition[9][2]={
 	{20,-60},{-60,-60},{20,20},
@@ -114,7 +114,6 @@ void drawGrid(){
 }
 void drawSquare(double x, double y, double color_rgb[]){
 	glColor3f(color_rgb[0],color_rgb[1],color_rgb[2]);
-	cout<<x<<","<<y<<endl;
 	
 	glBegin(GL_QUADS);
 	{
@@ -143,8 +142,8 @@ bool check(){
 void display(){
 
     if(check()){
-		cout<<"¡¡ Resuelto !!\n";
-		cout<<"Numero total de movimientos s "<<totStep<<endl;
+		cout<<"Felicidades, lo ha Resuelto con exito !!\n";
+		cout<<"Numero total de movimientos  "<<totStep<<endl;
 		exit(0);
 	}
 	glClearColor(0,0,0,0);
