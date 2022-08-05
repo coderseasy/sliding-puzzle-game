@@ -3,22 +3,10 @@
 #include <GL/gl.h>
 #include <iostream>
 #include <math.h>
-
 #include <windows.h>
 
 using namespace std;
-
-
 int totStep=0;
-
-typedef enum{
-	MODE_BITMAP,
-		MODE_STROKE
-}mode_type;
-
-static mode_type mode;
-static int font_index;
-
 void print_stroke_string(void* font, char* s){
 	if(s && strlen(s)){
 		
@@ -31,15 +19,10 @@ void print_stroke_string(void* font, char* s){
 void draw_stuff(int index, double tx, double ty){
 	char string[8][256];
 	
-	unsigned int count;
-	void* stroke_fonts[2]={
-		GLUT_STROKE_ROMAN,
-		GLUT_STROKE_ROMAN
-	};
+
 	for(int i=0;i<8;i++){
-		count=0;
-		string[i][count]=49+i;
-		string[i][++count]='\0';
+		string[i][0]=49+i;
+		string[i][1]='\0';
 	}
 	glColor3f(0.0,0.0,0.0);
 	int stroke_scale=10;
@@ -142,8 +125,8 @@ bool check(){
 void display(){
 
     if(check()){
-		cout<<"Felicidades, lo ha Resuelto con exito !!\n";
-		cout<<"Numero total de movimientos  "<<totStep<<endl;
+		cout<<"¡ Resuelto !!\n";
+		cout<<"Numero total de movimientos s "<<totStep<<endl;
 		exit(0);
 	}
 	glClearColor(0,0,0,0);
